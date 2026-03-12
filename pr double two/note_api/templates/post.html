@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>POST</title>
+</head>
+<body>
+    <h1>Создать заметку</h1>
+
+    <input type="text" id="title" placeholder="Название"><br><br>
+    <input type="text" id="content" placeholder="Текст"><br><br>
+    <label>
+        <input type="checkbox" id="is_public"> Публичная
+    </label><br><br>
+
+    <button onclick="createNote()">Создать</button>
+
+    <script>
+        function createNote() {
+            fetch('/notes', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    title: document.getElementById('title').value,
+                    content: document.getElementById('content').value,
+                    is_public: document.getElementById('is_public').checked
+                })
+            })
+            .then(res => res.json())
+            .then(data => alert("Создано!"));
+        }
+    </script>
+
+    <br><br>
+    <button onclick="location.href='/'">Назад</button>
+</body>
+</html>
