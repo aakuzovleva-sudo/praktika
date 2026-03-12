@@ -1,2 +1,1 @@
-# praktika
-q
+
