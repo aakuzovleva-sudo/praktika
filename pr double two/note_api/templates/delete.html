@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DELETE</title>
+</head>
+<body>
+    <h1>Удалить заметку</h1>
+
+    <input type="number" id="id" placeholder="ID"><br><br>
+
+    <button onclick="deleteNote()">Удалить</button>
+
+    <script>
+        function deleteNote() {
+            let id = document.getElementById('id').value;
+
+            fetch(`/notes/${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => alert("Удалено!"));
+        }
+    </script>
+
+    <br><br>
+    <button onclick="location.href='/'">Назад</button>
+</body>
+</html>

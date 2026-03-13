@@ -1,0 +1,20 @@
+[
+    {
+        "title": "string",
+        "content": "string",
+        "is_public": false,
+        "id": 2
+    },
+    {
+        "title": "string",
+        "content": "string",
+        "is_public": false,
+        "id": 3
+    },
+    {
+        "title": "lumea",
+        "content": "сма",
+        "is_public": false,
+        "id": 6
+    }
+]
