@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PATCH</title>
+</head>
+<body>
+    <h1>Частичное обновление</h1>
+
+    <input type="number" id="id" placeholder="ID"><br><br>
+    <input type="text" id="title" placeholder="Новое название"><br><br>
+
+    <button onclick="patchNote()">Изменить</button>
+
+    <script>
+        function patchNote() {
+            let id = document.getElementById('id').value;
+
+            fetch(`/notes/${id}`, {
+                method: 'PATCH',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    title: document.getElementById('title').value
+                })
+            })
+            .then(res => res.json())
+            .then(data => alert("Изменено!"));
+        }
+    </script>
+
+    <br><br>
+    <button onclick="location.href='/'">Назад</button>
+</body>
+</html>
